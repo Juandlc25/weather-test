@@ -1,0 +1,16 @@
+{
+  "tests": [
+    { "name": "Get weather by city name - Valid input", "status": "passed" },
+    {
+      "name": "Get weather by geographic coordinates - Valid input",
+      "status": "failed",
+      "error": "Timeout error"
+    },
+    { "name": "Error handling - Invalid city name", "status": "passed" },
+    {
+      "name": "Error handling - Missing API key",
+      "status": "failed",
+      "error": "API key missing"
+    }
+  ]
+}
