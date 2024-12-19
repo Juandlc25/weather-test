@@ -11,6 +11,6 @@
 
 1. Clone the repository:
    ```bash
-   git clone <repo_url>
+   git clone https://github.com/Juandlc25/weather-test.git
    cd weather-test
    ```
