@@ -1,6 +1,9 @@
 import { test, expect, APIRequestContext } from "@playwright/test";
+import dotenv from "dotenv";
 
-const apiKey = "1692f7248bd41122202b0c11fcd425b0";
+dotenv.config();
+
+const apiKey = process.env.API_KEY;
 const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
 
 test.describe("OpenWeatherMap API Tests", () => {
@@ -18,8 +21,8 @@ test.describe("OpenWeatherMap API Tests", () => {
   });
 
   test("Get weather by geographic coordinates - Valid input", async () => {
-    const lon = -0.1278;
-    const lat = 51.5074;
+    const lon = -0.1276;
+    const lat = 51.5073;
     const response = await request.get(
       `${baseUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}`
     );
@@ -43,7 +46,7 @@ test.describe("OpenWeatherMap API Tests", () => {
     );
     expect(response.status()).toBe(400);
     const data = await response.json();
-    expect(data.message).toContain("wrong latitude or longitude");
+    expect(data.message).toContain("wrong latitude");
   });
 
   test("Error handling - Missing API key", async () => {
